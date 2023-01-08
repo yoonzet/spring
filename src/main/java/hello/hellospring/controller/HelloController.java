@@ -8,13 +8,13 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class HelloController {
-    @GetMapping("hello")
+    @GetMapping("hello") // 정적컨텐츠 방식(파일을 그대로 내보냄)
     public  String hello(Model model){
         model.addAttribute("data", "hello!!");
         return "hello"; // resource/templates/hello.html찾아서 랜더링함.
     }
 
-    @GetMapping("hello-mvc")
+    @GetMapping("hello-mvc") //템플릿으로 데이터를 프로그래밍해서 전달해줌
     public String helloMvc(@RequestParam("name") String name, Model model) {
         model.addAttribute("name", name);
         return "hello-template";
